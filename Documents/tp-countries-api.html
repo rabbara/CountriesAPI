@@ -1,0 +1,70 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-25T21:43:58.9558042"><meta name="build-number" content="${buildNumber}">       <title>TP: Countries API | Help Instance</title><script id="virtual-toc-data" type="application/json">[{"id":"consignes","level":0,"title":"Consignes","anchor":"#consignes"},{"id":"exercice-1-obtenir-les-donn-es","level":0,"title":"Exercice 1: Obtenir les données","anchor":"#exercice-1-obtenir-les-donn-es"},{"id":"exercice-2-sauvegarder-les-donn-es-brut-dans-un-fichier-json","level":0,"title":"Exercice 2: Sauvegarder les données brut dans un fichier JSON","anchor":"#exercice-2-sauvegarder-les-donn-es-brut-dans-un-fichier-json"},{"id":"exercice-3-convertir-les-donn-es-json-en-une-dataframe-pandas","level":0,"title":"Exercice 3: Convertir les données JSON en une Dataframe pandas","anchor":"#exercice-3-convertir-les-donn-es-json-en-une-dataframe-pandas"},{"id":"exercice-4-filtrer-les-donn-es","level":0,"title":"Exercice 4: Filtrer les données","anchor":"#exercice-4-filtrer-les-donn-es"},{"id":"exercice-5-enregistrer-les-donn-es-dans-un-fichier-excel","level":0,"title":"Exercice 5: Enregistrer les données dans un fichier Excel","anchor":"#exercice-5-enregistrer-les-donn-es-dans-un-fichier-excel"},{"id":"exercice-6-enregistrer-les-donn-es-dans-une-base-de-donn-es-mysql","level":0,"title":"Exercice 6: Enregistrer les données dans une base de données MySQL","anchor":"#exercice-6-enregistrer-les-donn-es-dans-une-base-de-donn-es-mysql"}]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="TP: Countries API | Help Instance"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Help Instance Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="tp-countries-api.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="TP: Countries API | Help Instance"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "tp-countries-api.html#webpage", "url": "tp-countries-api.html", "name": "TP: Countries API | Help Instance", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "Help Instance Help" }</script><!-- End Schema.org --></head>      <body data-id="TP-Countries-API" data-main-title="TP: Countries API" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs=""  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Help Instance  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="TP-Countries-API"   id="TP-Countries-API.md">TP: Countries API</h1>  <p id="a707f6a5_9741">L'objectif de ce TP est de t&eacute;l&eacute;charger les donn&eacute;es des pays et des les enregistrer dans un fichier Excel ainsi que dans une base de donn&eacute;es MySQL.</p><p id="a707f6a5_9742">Les donn&eacute;es sont fournies par REST Countries via une requ&ecirc;te API. Les donn&eacute;es sont au format JSON. Une documention sur l'API est disponible &agrave; cette adresse: https://restcountries.com/.</p><p id="a707f6a5_9743">A travers ce TP, on abordera plusieurs notions, qui sont:</p><ul class="list _ul" id="a707f6a5_9744"><li class="list__item" id="a707f6a5_9745"><p>Apprendre &agrave; manipuler les requ&ecirc;tes API en Python</p></li><li class="list__item" id="a707f6a5_9746"><p>Convertir des donn&eacute;es au format JSON au format tableau</p></li><li class="list__item" id="a707f6a5_9747"><p>Interagir avec une base de donn&eacute;es en python</p></li></ul><p id="a707f6a5_9748"><span class="emphasis" id="a707f6a5_9749">Pr&eacute;-requis: avoir suivi le tutoriel: Comment configurer un environement virtuel Python sur Windows 11?</span></p><section class="chapter"><h2 id="consignes" data-toc="consignes"   >Consignes</h2><p id="a707f6a5_9750">Completer le code dans le fichier main.py. Vous pouvez tester votre code dans Test/test.py.</p></section><section class="chapter"><h2 id="exercice-1-obtenir-les-donn-es" data-toc="exercice-1-obtenir-les-donn-es"   >Exercice 1: Obtenir les donn&eacute;es</h2><p id="a707f6a5_9751">Dans le fichier main.py, veuillez compl&eacute;ter la fonction</p><div class="code-block" data-lang="none"         >
+def collect_countries_datas() -&gt; list:
+    '''
+    Collect datas from CountriesAPI, Raise an error if the request code != 200.
+        
+        Returns:
+            Countries rows (list): countries datas from the api
+    '''
+    pass
+</div><p id="a707f6a5_9753"><span class="emphasis" id="a707f6a5_9754">Librairies &agrave; utiliser: requests</span></p></section><section class="chapter"><h2 id="exercice-2-sauvegarder-les-donn-es-brut-dans-un-fichier-json" data-toc="exercice-2-sauvegarder-les-donn-es-brut-dans-un-fichier-json"   >Exercice 2: Sauvegarder les donn&eacute;es brut dans un fichier JSON</h2><p id="a707f6a5_9755">Sauvegarder les donn&eacute;es dans Outputs/countries.json. Les donn&eacute;es doivent &ecirc;tre encod&eacute;es en UTF-8. Assurez-vous de bien formater le fichier avec la bonne indentation pour am&eacute;liorer la lisibilit&eacute; des donn&eacute;es.</p><div class="code-block" data-lang="none"         >
+def save_to_json(datas: list, folder: str=&quot;Outputs&quot;) -&gt; None:
+    '''
+    Save datas on file at the JSON format
+        
+        Paramaters:
+            datas (list): json datas
+            folder (str): folder to save the file, the default folder is Outputs
+        
+        Return:
+            None    
+    '''
+    pass
+</div><p id="a707f6a5_9757"><span class="emphasis" id="a707f6a5_9758">Librairies &agrave; utiliser: json</span></p></section><section class="chapter"><h2 id="exercice-3-convertir-les-donn-es-json-en-une-dataframe-pandas" data-toc="exercice-3-convertir-les-donn-es-json-en-une-dataframe-pandas"   >Exercice 3: Convertir les donn&eacute;es JSON en une Dataframe pandas</h2><p id="a707f6a5_9759">Convertissez les donn&eacute;es JSON en une pandas Dataframe.</p><div class="code-block" data-lang="none"         >
+def countries_api_to_dataframe(datas: list) -&gt; pd.DataFrame:
+'''
+Convert datas from CountriesAPI at the format JSON to a pandas dataframe
+
+        Paramaters:
+            datas (Dataframe):  JSON datas from CountriesAPI
+        
+        Return:
+            countries datas (Dataframe): countries datas
+    '''
+    pass
+</div><p id="a707f6a5_9761">Votre dataframe doit avoir ces colonnes:</p><ul class="list _ul" id="a707f6a5_9762"><li class="list__item" id="a707f6a5_9763"><p>country_cca2,</p></li><li class="list__item" id="a707f6a5_9764"><p>country_cca3,</p></li><li class="list__item" id="a707f6a5_9765"><p>country_common_name,</p></li><li class="list__item" id="a707f6a5_9766"><p>country_official_name,</p></li><li class="list__item" id="a707f6a5_9767"><p>country_languages,</p></li><li class="list__item" id="a707f6a5_9768"><p>country_area,</p></li><li class="list__item" id="a707f6a5_9769"><p>country_population,</p></li><li class="list__item" id="a707f6a5_9770"><p>country_borders,</p></li><li class="list__item" id="a707f6a5_9771"><p>country_region,</p></li><li class="list__item" id="a707f6a5_9772"><p>country_subregion,</p></li><li class="list__item" id="a707f6a5_9773"><p>country_continents,</p></li><li class="list__item" id="a707f6a5_9774"><p>country_flags_alt,</p></li><li class="list__item" id="a707f6a5_9775"><p>country_flags_png,</p></li><li class="list__item" id="a707f6a5_9776"><p>country_flags_svg,</p></li><li class="list__item" id="a707f6a5_9777"><p>coat_of_arms_png,</p></li><li class="list__item" id="a707f6a5_9778"><p>coat_of_arms_svg,</p></li><li class="list__item" id="a707f6a5_9779"><p>country_independent_status,</p></li><li class="list__item" id="a707f6a5_9780"><p>country_landlocked_status,</p></li><li class="list__item" id="a707f6a5_9781"><p>country_un_member,</p></li><li class="list__item" id="a707f6a5_9782"><p>capital_name,</p></li><li class="list__item" id="a707f6a5_9783"><p>capital_lat,</p></li><li class="list__item" id="a707f6a5_9784"><p>capital_lon,</p></li><li class="list__item" id="a707f6a5_9785"><p>car_side,</p></li><li class="list__item" id="a707f6a5_9786"><p>currency_code,</p></li><li class="list__item" id="a707f6a5_9787"><p>currency_name,</p></li><li class="list__item" id="a707f6a5_9788"><p>currency_symbol</p></li></ul><p id="a707f6a5_9789"><span class="emphasis" id="a707f6a5_9790">Librairies &agrave; utiliser: pandas</span></p></section><section class="chapter"><h2 id="exercice-4-filtrer-les-donn-es" data-toc="exercice-4-filtrer-les-donn-es"   >Exercice 4: Filtrer les donn&eacute;es</h2><p id="a707f6a5_9791">Filtrer le jeu de donn&eacute;es pour exclure les pays du continent &quot;Antarctica&quot;.</p></section><section class="chapter"><h2 id="exercice-5-enregistrer-les-donn-es-dans-un-fichier-excel" data-toc="exercice-5-enregistrer-les-donn-es-dans-un-fichier-excel"   >Exercice 5: Enregistrer les donn&eacute;es dans un fichier Excel</h2><p id="a707f6a5_9792">Enregistrer les donn&eacute;es dans le fichier Outputs/countries.xlsx. D&eacute;sactiver l'index.</p><div class="code-block" data-lang="none"         >
+def save_to_excel(datas: pd.DataFrame, folder: str=&quot;Outputs&quot;, engine: str=&quot;openpyxl&quot;) -&gt; None:
+    '''
+    Save a dataframe datas on a Excel file
+        
+        Paramaters:
+            datas (Dataframe):  datas
+            folder (str): folder to save the file, the default folder is Outputs
+            engine: Engine use for creating the file, default is openpyxl
+        
+        Return:
+            None    
+    '''
+</div></section><section class="chapter"><h2 id="exercice-6-enregistrer-les-donn-es-dans-une-base-de-donn-es-mysql" data-toc="exercice-6-enregistrer-les-donn-es-dans-une-base-de-donn-es-mysql"   >Exercice 6: Enregistrer les donn&eacute;es dans une base de donn&eacute;es MySQL</h2><p id="a707f6a5_9794">Pour la base de donn&eacute;es, on va utiliser MySQL. Vous &ecirc;tes libres d'utiliser le SGBD que vous souhaitez.</p><p id="a707f6a5_9795">Dans le fichier config.ini, remplir les informations DB_USER, DB_PWD et DB_NAME en fonction de votre configuration:</p><div class="code-block" data-lang="none"         >
+[DB]
+HOST = localhost
+PORT = 3306
+DB_USER = &lt;DB_USER&gt;
+DB_PWD = &lt;DB_PWD&gt;
+DB_NAME = &lt;DB_NAME&gt;
+</div><p id="a707f6a5_9797">Puis compl&eacute;tez la fonction suivante pour configurer votre base de donn&eacute;es, vous devez prot&eacute;ger votre code des injections SQL :</p><div class="code-block" data-lang="none"         >
+def init_db() -&gt; None:
+    '''
+    Initialize database.
+    '''
+    pass
+</div><p id="a707f6a5_9799">Ensuite ecrivez une fonction pour enregistrer les donn&eacute;es dans la base de donn&eacute;es. Les identifiants de connection &agrave; la base de donn&eacute;es se d&eacute;finit de cette mani&egrave;re <code class="code" id="a707f6a5_9800">mysql+mysqlconnector://&lt;DB_USER&gt;:&lt;DB_PWD&gt;@&lt;HOST&gt;:&lt;PORT&gt;</code>.</p><div class="code-block" data-lang="none"         >
+def save_to_db(df: pd.DataFrame) -&gt; None:
+    '''
+    Save datas on the db
+    
+        Paramaters:
+            df (Dataframe): datas
+    '''
+    pass
+</div><p id="a707f6a5_9802"><span class="emphasis" id="a707f6a5_9803">Librairies &agrave; utiliser: SQLAlchemy, pandas</span></p></section><div class="last-modified"> Last modified: 25 décembre 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="configurer-un-environement-python.html">Tuto 1: Comment configurer un environement virtuel Python sur Windows 11?</a>   </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>

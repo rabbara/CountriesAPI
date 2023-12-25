@@ -26,7 +26,7 @@ DB_NAME: final = config.get("DB", "DB_NAME")
 
 def collect_countries_datas() -> list:
     '''
-    Collect datas from CountriesAPI
+    Collect datas from CountriesAPI, Raise an error if the request code != 200.
         
         Returns:
             Countries rows (list): countries datas from the api
